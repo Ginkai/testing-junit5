@@ -1,29 +1,44 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class VotingAgeCheckerTest {
-    
+public class MainTest {
+
     @Test
-    public void testVotingAgeCheckerWithValidAge() {
+    public void testSumEvenNumbersGreaterThan10() {
         // Arrange
-        int age = 20; // Tuổi đủ để bầu cử
-        
+        int[] numbers = {2, 4, 6};
+        int expectedSum = 12;
+
         // Act
-        String result = VotingAgeChecker.checkVotingAge(age);
-        
+        int actualSum = Main.calculateSumOfEvenNumbers(numbers);
+
         // Assert
-        assertEquals("Bạn đã đủ tuổi để bầu cử.", result);
+        assertEquals(expectedSum, actualSum);
     }
-    
+
     @Test
-    public void testVotingAgeCheckerWithInvalidAge() {
+    public void testSumEvenNumbersLessThanOrEqualTo10() {
         // Arrange
-        int age = 16; // Tuổi không đủ để bầu cử
-        
+        int[] numbers = {1, 2, 3, 4};
+        int expectedSum = 6;
+
         // Act
-        String result = VotingAgeChecker.checkVotingAge(age);
-        
+        int actualSum = Main.calculateSumOfEvenNumbers(numbers);
+
         // Assert
-        assertEquals("Bạn chưa đủ tuổi để bầu cử.", result);
+        assertEquals(expectedSum, actualSum);
+    }
+
+    @Test
+    public void testSumWithNoEvenNumbers() {
+        // Arrange
+        int[] numbers = {1, 3, 5};
+        int expectedSum = 0;
+
+        // Act
+        int actualSum = Main.calculateSumOfEvenNumbers(numbers);
+
+        // Assert
+        assertEquals(expectedSum, actualSum);
     }
 }
